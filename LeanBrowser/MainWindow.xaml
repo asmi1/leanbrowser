@@ -1,0 +1,130 @@
+﻿<Window x:Class="LeanBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:local="clr-namespace:LeanBrowser"
+        xmlns:Controls="clr-namespace:LeanBrowser.Controls"
+        mc:Ignorable="d"
+        Title="Lean Browser"
+        SourceInitialized="Window_SourceInitialized"
+        StateChanged="Window_StateChanged"
+        SizeChanged="Window_SizeChanged"
+        Activated="Window_ActivatedDeactivated"
+        Deactivated="Window_ActivatedDeactivated"
+        Closing="Window_Closing"
+        fw:AcrylicWindow.Enabled="True"
+        Style="{StaticResource windowStyle}">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static SystemCommands.CloseWindowCommand}"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_CloseExecuted" />
+        <CommandBinding Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_MinimizeWExecuted" />
+        <CommandBinding Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_MaximizeExecuted" />
+        <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                        CanExecute="CommandBinding_CanExecute"
+                        Executed="CommandBinding_RestoreExecuted" />
+    </Window.CommandBindings>
+    <Grid x:Name="MainWindowGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid x:Name="WindowChrome" Grid.Row="0" Style="{StaticResource windowChromeStyle}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="138"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="DragArea"
+                        MouseLeftButtonDown="DragArea_PreviewMouseLeftButtonDown"
+                        MouseLeftButtonUp="DragArea_PreviewMouseLeftButtonUp"
+                        MouseMove="DragArea_PreviewMouseMove"
+                        Grid.Column="0"
+                        Background="Transparent">
+                <local:TabBar x:Name="TabBar" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.ZIndex="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <!-- Minimize -->
+                <Button Name="windowMinimize"
+                        Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                        Style="{StaticResource windowButtonsStyle}">
+                    <Image Style="{StaticResource windowImagesStyle}"
+                           Source="{StaticResource minimizeDrawingImage}" />
+                </Button>
+
+                <StackPanel Orientation="Vertical">
+                    <!-- Maximize -->
+                    <Button Name="windowMaximize"
+                            Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                            Style="{StaticResource windowMaximizeStyle}">
+                        <Image Style="{StaticResource windowImagesStyle}"
+                               Source="{StaticResource maximizeDrawingImage}" />
+                    </Button>
+
+                    <!-- Restore -->
+                    <Button Name="windowRestore"
+                            Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                            Style="{StaticResource windowRestoreStyle}">
+                        <Image Style="{StaticResource windowImagesStyle}"
+                               Source="{StaticResource restoreDrawingImage}" />
+                    </Button>
+                </StackPanel>
+                
+                <!-- Close -->
+                <Button Name="windowClose"
+                        Command="{x:Static SystemCommands.CloseWindowCommand}"
+                        Style="{StaticResource windowCloseStyle}">
+                    <Image Style="{StaticResource windowCloseImageStyle}" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <local:ToolBar x:Name="ToolBar" Grid.Row="0" />
+            <Grid x:Name="container" Grid.Row="1" HorizontalAlignment="Stretch" Background="White" />
+            <Popup x:Name="MenuPopup"
+                   Height="{Binding ElementName=container}"
+                   VerticalOffset="0"
+                   HorizontalOffset="-281"
+                   AllowsTransparency="True"
+                   StaysOpen="False"
+                   Placement="Right"
+                   VerticalAlignment="Bottom"
+                   PlacementTarget="{Binding ElementName=container}"
+                   Style="{StaticResource menuPopupStyle}">
+                <Controls:Menu x:Name="Menu" Style="{StaticResource menuStyle}" />
+            </Popup>
+
+            <Popup x:Name="StatusBarPopup"
+                       Height="20"
+                       VerticalOffset="-20"
+                       AllowsTransparency="True"
+                       IsOpen="True"
+                       Placement="Bottom"
+                       VerticalAlignment="Bottom"
+                       PlacementTarget="{Binding ElementName=container}"
+                       MaxWidth="{Binding ElementName=container, Path=ActualWidth}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StatusBar Grid.Column="0" Style="{StaticResource statusBarStyle}">
+                        <StatusBarItem Style="{StaticResource statusBarItemStyle}">
+                            <TextBlock x:Name="statusBar" Text="" VerticalAlignment="Center" Height="20" />
+                        </StatusBarItem>
+                    </StatusBar>
+                </Grid>
+            </Popup>
+        </Grid>
+    </Grid>
+</Window >

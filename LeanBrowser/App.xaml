@@ -1,0 +1,37 @@
+﻿<Application x:Class="LeanBrowser.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converter="clr-namespace:LeanBrowser.Converter"
+             xmlns:local="clr-namespace:LeanBrowser"
+             ShutdownMode="OnLastWindowClose">
+    <JumpList.JumpList>
+        <JumpList>
+            <JumpTask Title="New Window"/>
+            <JumpTask Title="New incognito Window" Arguments="-i" />
+        </JumpList>
+    </JumpList.JumpList>
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <!--  Converters  -->
+            <converter:InvertValueConverter x:Key="InvertValueConverter"/>
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--  FluentWPF  -->
+                <ResourceDictionary Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
+
+                <!--  Brushes  -->
+                <ResourceDictionary x:Name="Brushes" Source="Assets/Brushes.xaml"/>
+
+                <!--  Icons  -->
+                <ResourceDictionary x:Name="Icons" Source="Assets/Icons.xaml"/>
+
+                <!--  Styles  -->
+                <ResourceDictionary x:Name="StylesHW" Source="Assets/StylesHW.xaml"/>
+                <ResourceDictionary x:Name="Styles" Source="Assets/Styles.xaml"/>
+                
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

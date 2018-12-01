@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="LeanBrowser.Controls.IconButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LeanBrowser.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="38" d:DesignWidth="38">
+    <Grid x:Name="bg">
+        <Button x:Name="btn" Style="{StaticResource panelButtonStyle}">
+            <Image x:Name="image" Style="{StaticResource panelButtonImageStyle}" Source="{StaticResource menuDrawingImage}" />
+        </Button>
+    </Grid>
+</UserControl>

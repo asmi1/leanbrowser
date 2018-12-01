@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="LeanBrowser.Tab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="32" d:DesignWidth="200"
+             Style="{StaticResource tabControlStyle}">
+    <Grid Background="{StaticResource transBrush}"
+          PreviewMouseDown="Me_MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border x:Name="tabOverlay" Grid.Row="0" Style="{StaticResource tabOverlayStyle}">
+        </Border>
+        <Border x:Name="tab" Grid.Row="0" Style="{StaticResource tabStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="16" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Audio Mute -->
+                <Image x:Name="AudioMute"
+                            PreviewMouseDown="AudioMute_PreviewMouseDown"
+                            Style="{StaticResource tabAudioMuteStyle}"
+                            Source="{StaticResource audioOnDrawingImage}"
+                            Grid.Column="0" />
+
+                <!-- Favicon -->
+                <Canvas Grid.Column="1" Style="{StaticResource tabFaviconStyle}">
+                    <Border Style="{StaticResource tabFaviconBorderStyle}">
+                        <Image x:Name="FavIcon" Style="{StaticResource tabFaviconImageStyle}" Source="{StaticResource websiteDrawingImage}" />
+                    </Border>
+                    <Border Style="{StaticResource tabFaviconBorderStyle}">
+                        <Image x:Name="FavSpinner" Visibility="Hidden" Style="{StaticResource tabFaviconSpinnerStyle}" Source="{StaticResource spinnerDrawingImage}" />
+                    </Border>
+                </Canvas>
+
+                <!-- Title -->
+                <TextBlock x:Name="label_TabTitle" Grid.Column="2" Style="{StaticResource tabTitleStyle}" Text="New tab" VerticalAlignment="Center" Margin="0,0,0,2" />
+
+                <!-- Close button -->
+                <Button Name="CloseTab"
+                        PreviewMouseLeftButtonDown="CloseTab_PreviewMouseLeftButtonDown"
+                        Grid.Column="3"
+                        Style="{StaticResource tabCloseButtonStyle}">
+                    <Image Style="{StaticResource tabCloseImageStyle}" />
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

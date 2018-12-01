@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="LeanBrowser.ToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:LeanBrowser.Controls"
+             xmlns:local="clr-namespace:LeanBrowser"
+             mc:Ignorable="d" 
+             d:DesignHeight="44" d:DesignWidth="600">
+    <Grid Style="{StaticResource BtnPointerTrackerStyle}">
+        <Border Style="{StaticResource panelBorderStyle}" Grid.ColumnSpan="2">
+            <DockPanel Style="{StaticResource panelStyle}">
+                <!-- Back -->
+                <controls:IconButton x:Name="Back" />
+
+                <!-- Forward -->
+                <controls:IconButton x:Name="Forward" />
+
+                <!-- Refresh/Stop -->
+                <controls:IconButton x:Name="Refresh" />
+
+                <!-- Home -->
+                <controls:IconButton x:Name="Home" />
+
+                <!-- Menu -->
+                <controls:IconButton x:Name="Menu" DockPanel.Dock="Right" />
+
+                <!-- Address bar -->
+                <controls:AddressBar x:Name="AddressBar" VerticalAlignment="Center" Margin="0,0,2,0"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="LeanBrowser.TabBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:LeanBrowser.Controls"
+             xmlns:local="clr-namespace:LeanBrowser"
+             mc:Ignorable="d" 
+             d:DesignHeight="32" d:DesignWidth="400">
+    <Grid HorizontalAlignment="Left">
+        <StackPanel x:Name="incognito" Style="{StaticResource tabIncognitoStyle}">
+            <Image Source="{StaticResource hackerWhiteDrawingImage}" Style="{StaticResource tabIncognitoImageStyle}" />
+            <Label Content="Incognito" Style="{StaticResource tabIncognitoLabelStyle}" />
+        </StackPanel>
+        
+        <ScrollViewer x:Name="sv"
+            PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+            Style="{StaticResource tabScrollViewerStyle}"
+            HorizontalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Disabled"
+            HorizontalAlignment="Left" VerticalAlignment="Center">
+            <StackPanel x:Name="canvas" HorizontalAlignment="Left" Orientation="Horizontal"/>
+        </ScrollViewer>
+
+        <DockPanel HorizontalAlignment="Right">
+            <!-- Add new tab button  -->
+            <Button x:Name="AddButton"
+                Style="{StaticResource tabBarButtonStyle}"
+                Click="AddButton_Click"
+                HorizontalAlignment="Left">
+                <Image Width="15" Height="15" Margin="1,0,0,0" Source="{StaticResource plusDrawingImage}" />
+            </Button>
+            <!-- Tab nav buttons -->
+            <DockPanel Style="{StaticResource tabNavBtnGroupStyle}">
+                <Button x:Name="ScrolltoLeft_Btn"
+                        Style="{StaticResource tabBarButtonStyle}"
+                        Command="{x:Static ScrollBar.LineLeftCommand}"
+                        CommandTarget="{Binding ElementName=sv}" HorizontalAlignment="Left">
+                    <Image Width="12" Height="12" Source="{StaticResource angleLeftDrawingImage}" />
+                </Button>
+                <Button x:Name="ScrolltoRight_Btn"
+                        Style="{StaticResource tabBarButtonStyle}"
+                        Command="{x:Static ScrollBar.LineRightCommand}"
+                        CommandTarget="{Binding ElementName=sv}" HorizontalAlignment="Left">
+                    <Image Width="12" Height="12" Source="{StaticResource angleRightDrawingImage}" />
+                </Button>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

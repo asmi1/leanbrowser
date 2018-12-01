@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="LeanBrowser.Controls.AddressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LeanBrowser.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="400"
+             MouseDown="AddressBarControl_MouseDown">
+    <Border x:Name="addressBarWrap"
+            Style="{StaticResource searchBarFocusBorderStyle}"
+            MouseDown="FormattedAddressBar_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="original" Content="" Visibility="Collapsed" />
+            <Border x:Name="addressBarBorder" Grid.Column="1"
+                    Style="{StaticResource searchBarInnerBorderStyle}"
+                    Visibility="Visible">
+                <Grid VerticalAlignment="Stretch">
+                    <TextBlock x:Name="placeholder" Text="Search or enter a web address"
+                        Style="{StaticResource searchBarTextBlockStyle}" />
+                    <TextBox x:Name="textBox"
+                        KeyDown="TextBox_KeyDown"
+                        ContextMenuOpening="TextBox_ContextMenuOpening"
+                        LostFocus="TextBox_LostFocus"
+                        LostKeyboardFocus="TextBox_LostFocus"
+                        TextChanged="TextBox_TextChanged"
+                        GotKeyboardFocus="TextBox_GotFocus"
+                        Style="{StaticResource searchBarStyle}"
+                        Text=""/>
+                </Grid>
+            </Border>
+            <Border x:Name="formattedAddressBarBorder" Grid.Column="1"
+                    Style="{StaticResource searchBarInnerBorderStyle}"
+                    Visibility="Collapsed" Background="Transparent">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="scheme" Text="https" Style="{StaticResource searchBarTextBlockStyle}" />
+                    <TextBlock x:Name="delimiter" Text="" Style="{StaticResource searchBarTextBlockStyle}" />
+                    <TextBlock x:Name="host" Text="" Style="{StaticResource searchBarHostTextblockStyle}" />
+                    <TextBlock x:Name="query" Text="" Style="{StaticResource searchBarTextBlockStyle}" />
+                </StackPanel>
+            </Border>
+            <Button x:Name="CertificateInfo" Grid.Column="0" Style="{StaticResource SearchBarIconBorderStyle}" Click="CertificateInfo_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="icon" Style="{StaticResource SearchBarIconStyle}" Source="{StaticResource searchDrawingImageGray}" />
+                    <TextBlock x:Name="error" Text="" Style="{StaticResource SearchBarIconLabelStyle}" />
+                </StackPanel>
+                <Button.ToolTip>
+                    <ToolTip x:Name="CertificateTooltip" IsOpen="False" HorizontalOffset="-130" Width="300">
+                        <StackPanel>
+                            <TextBlock FontSize="18" FontWeight="Bold">Certificate Error</TextBlock>
+                            <TextBlock TextWrapping="Wrap" FontSize="14">This website’s SSL certificate is not valid or has expired.</TextBlock>
+                            <TextBlock FontSize="14">Error code:</TextBlock>
+                            <TextBlock x:Name="errorCode" FontSize="14"></TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>
