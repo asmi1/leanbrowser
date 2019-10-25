@@ -1,13 +1,13 @@
 Product: DotNetBrowser
 Version: 1.x
 Licensed to: 
-License type: Development
-License info: Single-user license
+License type: Runtime
+License info: Not for development
 Product binding: the specific project
 Product binding info: 4bbswxru4twsuefb0ils0vk
 Expiration date: NEVER
 Generation date: 18-12-2018
 Platforms: win32/x86;win32/x64
 Company name: Lean Browser
-SigB: 5ddkvnzb9pn5yp0my3nwfxfwyvegcrdtq16aboj91qv2yfai13n7v502um1jgw0rg4l2f9ptze79gi1n
-SigA: 14il7bhw5menlyyqhvzbtfg7pdtx9cemma868j3po0yhlck6hq18305ajq3nr1jo1kie6vy1ru7miv02
+SigB: yn9zjg0hvrr0gbbsgiqgx7okjp5cbrmb4o7vk9az83cappq1u1wb3ftabjlukb7ezgukjui0m2cbyg9x
+SigA: i8g7pq7rqtamx1e9i0uetqjpwe9etphnfln68ujjtobhzfhaw4463g56caatxssz4f9zo5hkf1xew56i

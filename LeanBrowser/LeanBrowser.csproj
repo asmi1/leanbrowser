@@ -28,8 +28,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.1.0</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.0.1.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -106,27 +106,27 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetBrowser, Version=1.19.0.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetBrowser.1.19\lib\DotNetBrowser.dll</HintPath>
+    <Reference Include="DotNetBrowser, Version=1.21.1.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetBrowser.1.21.1\lib\DotNetBrowser.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetBrowser.Chromium32, Version=1.19.0.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetBrowser.1.19\lib\DotNetBrowser.Chromium32.dll</HintPath>
+    <Reference Include="DotNetBrowser.Chromium32, Version=1.21.1.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetBrowser.1.21.1\lib\DotNetBrowser.Chromium32.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetBrowser.Chromium64, Version=1.19.0.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetBrowser.1.19\lib\DotNetBrowser.Chromium64.dll</HintPath>
+    <Reference Include="DotNetBrowser.Chromium64, Version=1.21.1.0, Culture=neutral, PublicKeyToken=b0b5aaca9c95c84e, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetBrowser.1.21.1\lib\DotNetBrowser.Chromium64.dll</HintPath>
     </Reference>
-    <Reference Include="FluentWPF, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentWPF.0.4.1\lib\net45\FluentWPF.dll</HintPath>
+    <Reference Include="FluentWPF, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentWPF.0.7.0\lib\net45\FluentWPF.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
